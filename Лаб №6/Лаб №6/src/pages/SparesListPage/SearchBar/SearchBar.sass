@@ -1,0 +1,33 @@
+@import "src/Styles/variables.sass"
+
+.search-bar-wrapper
+	display: flex
+	align-items: center
+	gap: 25px
+
+	input
+		outline: none
+		padding: 8px 16px
+		font-size: 16px
+		border-radius: 15px
+		transition: all .3s ease
+
+		&:focus
+			border-color: $primary
+
+	button
+		border-radius: 15px
+		outline: none
+		border: none
+		cursor: pointer
+		background: $secondary
+		color: #fff
+		transition: all 0.3s ease
+		display: flex
+		justify-content: center
+		align-items: center
+		font-size: 18px
+		padding: 8px 16px
+
+		&:hover
+			transform: scale(1.1)

@@ -1,0 +1,108 @@
+{% extends 'base_page.html' %}
+
+{% load static %}
+
+{% block title %}
+    Авиа магазин
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="wrapper">
+
+        {% include 'components/navbar.html' %}
+
+        <div class="content-wrapper">
+
+            <div class="cards-wrapper">
+
+                <div class="top">
+
+                    <form class="search-bar" method="GET" action="/">
+
+                        {% csrf_token %}
+
+                        <input type="text" placeholder="Поиск" name="query" value="{{ search_query }}">
+
+                        <button type="submit">
+                          <i class="fa fa-search"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="bottom">
+
+                    {% for spare in spares %}
+
+                        <div class="card-wrapper">
+                            <div class="card">
+
+                                <a href="{{ spare.get_delete_url }}">
+                                   <div class="delete-btn-wrapper">
+                                        <i class="fa fa-trash"></i>
+                                        <span>Удалить</span>
+                                    </div>
+                                </a>
+
+                                <div class="preview">
+                                    <img src="media/{{ spare.image }}">
+                                </div>
+
+                                <div class="card-content">
+
+                                    <div class="content-top">
+
+                                        <h3 class="title">{{ spare.name }}</h3>
+
+                                        <div class="rating-wrapper">
+
+                                            {% for i in spare.get_stars_count_fill %}
+                                                <i class="fa fa-star fill"></i>
+                                            {% endfor %}
+
+                                            {% for i in spare.get_stars_count_empty%}
+                                                <i class="fa fa-star empty"></i>
+                                            {% endfor %}
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="content-bottom">
+
+                                        <span class="price">Цена: {{ spare.price}}₽</span>
+
+                                    </div>
+
+                                </div>
+
+                                <a href="{{spare.get_absolute_url}}" class="order-link">
+                                    <span>Заказать</span>
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    {% endfor %}
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

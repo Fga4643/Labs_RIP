@@ -1,0 +1,91 @@
+@import "src/Styles/variables.sass"
+
+.table-wrapper
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	width: 100%
+	min-height: 425px
+	background: #fff
+	overflow: hidden
+
+	.orders-table
+		width: 100%
+		border-collapse: collapse
+
+		thead
+			tr
+				background-color: $secondary
+
+				th
+					padding: 20px
+					user-select: none
+					gap: 10px
+					color: #fff
+
+
+		tbody
+			tr
+				transition: 0.2s ease
+
+				&:hover
+					background-color: lightskyblue
+
+				td
+					padding: 10px
+					text-align: center
+
+	.pagination-wrapper
+		display: flex
+		width: 100%
+		justify-content: flex-end
+		padding: 25px
+
+		.pagination-container
+			display: flex
+			align-items: center
+			justify-content: center
+			background-color: $secondary
+			padding: 15px
+			border-radius: 12px
+			column-gap: 12px
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+
+			.links-container
+				display: flex
+				align-items: center
+				column-gap: 12px
+
+				span
+					color: #fff
+
+			.button
+				width: 45px
+				height: 45px
+				display: flex
+				justify-content: center
+				align-items: center
+				padding: 5px
+				border: none
+				outline: none
+				background: #f0f2f5
+				color: #666
+				cursor: pointer
+				font-size: 16px
+				border-radius: 5px
+				transition: 0.2s ease
+
+				&:hover
+					transform: scale(1.05)
+
+				&:active
+					transform: scale(0.96)
+
+
+				&:hover, &.selected
+					background-color: $primary
+					color: #fff
+
+				&:disabled
+					color: #b3b3b3
+					pointer-events: none

@@ -1,0 +1,1 @@
+minio.exe server C:\Users\Fga4643\Desktop\Py\Labs RIP\Minio --console-address ":9001"

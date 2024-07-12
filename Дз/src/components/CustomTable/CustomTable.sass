@@ -1,0 +1,39 @@
+@import "src/styles/variables.sass"
+
+.table-wrapper
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	width: 100%
+	min-height: 525px
+	background-color: #2a2f3b
+
+	table
+		width: 100%
+		border-collapse: collapse
+
+		thead
+			tr
+				border-bottom: 1px solid #b3b3b3
+
+				th
+					padding: 20px
+					user-select: none
+					gap: 10px
+
+					svg
+						font-size: 14px
+
+		tbody
+			tr
+				transition: 0.2s ease
+				cursor: pointer
+				height: 67px
+
+				&:hover
+					background-color: $secondary
+					color: #fff
+
+				td
+					padding: 10px
+					text-align: center

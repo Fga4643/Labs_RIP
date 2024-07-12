@@ -1,0 +1,79 @@
+{% extends 'base_page.html' %}
+
+{% load static %}
+
+{% block title %}
+    Авиа магазин
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="wrapper">
+
+        {% include 'components/navbar.html' %}
+
+        <div class="content-wrapper">
+
+            <div class="spare-details-wrapper">
+
+                <a class="return-link" href="/">Назад</a>
+
+                <div class="left">
+
+                    <img src="../media/{{ spare.image }}">
+
+                </div>
+
+                <div class="right">
+
+                    <div class="details-container">
+                        <span class="name">Название: {{ spare.name }}</span>
+
+                        <span class="description">Описание: {{ spare.description }}</span>
+
+                        <span class="condition">Состояние: {{ spare.condition }}</span>
+
+                        <span class="price">Цена: {{ spare.price }}₽</span>
+
+                        <div class="rating-container">
+
+                            <span class="rating">Рейтинг:</span>
+
+                            {% for i in spare.get_stars_count_fill %}
+                                <i class="fa fa-star fill"></i>
+                            {% endfor %}
+
+                            {% for i in spare.get_stars_count_empty%}
+                                <i class="fa fa-star empty"></i>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                    <div class="buttons-container">
+
+                        <a href="{{ spare.get_absolute_url }}">
+                            <button class="order-button">Заказать<i class="fa fa-shopping-cart"></i></button>
+                        </a>
+
+                        <a href="{{ spare.get_absolute_url }}">
+                            <button  class="message-button">Написать сообщение<i class="fa fa-envelope"></i></button>
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,5 @@
+minio.exe server C:\Users\jmiha\YandexDisk-j.mihalev1018\Вуз\РИП\minio —console-address ":9001"
+
+setx MINIO_ROOT_USER admin
+
+setx MINIO_ROOT_PASSWORD password
